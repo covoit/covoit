@@ -138,7 +138,7 @@ app.controller('MainCtrl', function ($scope, $http, $location, $window, $uibModa
             $scope.commentaires = response;
        });
     //http://localhost/chantrerieAPI2/Get_entreprise.php
-    $http.get("https://chantrerie.000webhostapp.com/chantrerieAPI2/Get_entreprise.php")
+    $http.get("https://chantrerie.000webhostapp.com/Get_entreprise.php")
        .success(function (response) {
             $scope.entreprise = response;
        });   
