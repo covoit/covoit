@@ -1,0 +1,146 @@
+<div class="container">
+    <br>
+    <br>
+    <div>
+        <button ng-click="disconnect()" type="button" class="btn btn-danger">Déconnexion</button>
+        <button type="button" class="btn btn-primary" ng-click="exportMembers()">Exporter les membres</button>
+        <button type="button" class="btn btn-success" ng-click="statistiques()">Voir les statistiques</button>
+        <button type="button" class="btn btn-info" ng-click="showDisableMembers()">Voir les comptes désactivés</button>
+    </div>
+    <br>
+    <div class="row" style="color:white">
+        <div class="col-md-6">
+            <h1>Derniers inscrits</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Identifiant</th>
+                        <th>Date</th>
+                        <th>Désactiver?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="inscrit in derniersInscrits.data">
+                        <th>{{$index+1}}</th>
+                        <th>{{inscrit.username}}</th>
+                        <th>{{inscrit.registerDate}}</th>
+                        <th><button class="btn btn-danger" id="{{inscrit.email}}" ng-click="disableUser($event)">Désactiver</button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h1>Dernières connexions</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Identifiant</th>
+                        <th>Date / Heure</th>
+                        <th>Désactiver?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="connexion in derniersConnexions.data">
+                        <th>{{$index+1}}</th>
+                        <th>{{connexion.username}}</th>
+                        <th>{{connexion.lastConnected}}</th>
+                        <th><button class="btn btn-danger" id="{{connexion.email}}" ng-click="disableUser($event)">Désactiver</button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="color:white">
+        <div class="col-md-6">
+            <h1>Rechercher un membre</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Par adresse mail</th>
+                        <th>Du</th>
+                        <th>Au</th>
+                        <th>Par pseudo</th>
+                        <th><button class="btn btn-success" ng-click="memberSearchResult()" uib-tooltip="Type de recherche possible: Pseudo, Email, Pseudo+Email, Période, Tous les champs remplit">Lancez!</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><input class="form-control" placeholder="adresse mail" ng-model="searchEmail"></th>
+                        <th>
+                            <p class="input-group">
+                              <input type="text" class="form-control" uib-datepicker-popup="yyyy/MM/dd" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Fermer"/>
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                        </th>
+                        <th>
+                            <p class="input-group">
+                              <input type="text" class="form-control" uib-datepicker-popup="yyyy/MM/dd" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Fermer" />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                        </th>
+                        <th><input class="form-control" placeholder="pseudo" ng-model="searchUsername"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h1>Entreprises</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Liste entreprises</th>
+                        <th>Nouveau entreprise</th>
+                        <th>Résultat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><button class="btn btn-primary" ng-click="listEtablissement()">Voir</button></th>
+                        <th><input class="form-control" placeholder="nom établissment" ng-model="nomCompany"></th>
+                        <th><button class="btn btn-success" ng-click="insertCompany()">Ajouter</button></th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+     </div>
+    <div style="color:white">
+        <h4 class="text-center">Commentaires des membres</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Auteur</th>
+                    <th>Date/Heure</th>
+                    <th>Commentaire</th>
+                    <th>Modification</th>
+                    <th>Valider?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="commentaire in commentaires">
+                    <th>{{commentaire.user_email}}</th>
+                    <th>{{commentaire.date}}</th>
+                    <th>{{commentaire.content}}</th>
+                    <th>{{commentaire.content_modified}}<br>
+                        <input style="color:black" ng-model="currID[commentaire.id]"></input>
+                        <button class="btn btn-primary" id="{{commentaire.id}}" ng-click="modifierCommentaire($event)" style="border-radius:50%">
+                            Modifier
+                        </button>
+                    </th>
+                    <th> 
+                        <button class="btn btn-success" id="{{commentaire.id}}" ng-click="validComment($event)" style="border-radius:50%">Valider</button>
+                        <button class="btn btn-danger" id="{{commentaire.id}}" ng-click="deleteComment($event)" style="border-radius:50%">Supprimer</button>       
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,63 @@
+<div class="modal-header" style="text-align:center">
+    <h3 class="text-center">Statistiques</h3>
+</div>
+<div class="modal-body" style="text-align:center">
+    <strong style="text-align: center; color:red">Total: </strong>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre total d'inscriptions :</th>
+                <th>Nombre total de membres actuellement inscrits :</th>
+                <th>Nombre total de connexions :</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{dataStatistiques.data.total[0].inscriptions}}</th>
+                <th>{{dataStatistiques.data.total[0].membres}}</th>
+                <th>{{dataStatistiques.data.total[0].connexions}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <strong style="text-align: center; color:red">Nombre d'inscriptions: </strong>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Aujourd'hui :</th>
+                <th>Cette semaine :</th>
+                <th>Ce mois-ci :</th>
+                <th>Les 6 derniers mois :</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{dataStatistiques.data.inscriptions[0].aujourdhui}}</th>
+                <th>{{dataStatistiques.data.inscriptions[0].semaine}}</th>
+                <th>{{dataStatistiques.data.inscriptions[0].mois}}</th>
+                <th>{{dataStatistiques.data.inscriptions[0].sixmois}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <strong style="text-align: center; color:red">Nombre de connexions: </strong>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Aujourd'hui :</th>
+                <th>Cette semaine :</th>
+                <th>Ce mois-ci :</th>
+                <th>Les 6 derniers mois :</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{dataStatistiques.data.connexions[0].aujourdhui}}</th>
+                <th>{{dataStatistiques.data.connexions[0].semaine}}</th>
+                <th>{{dataStatistiques.data.connexions[0].mois}}</th>
+                <th>{{dataStatistiques.data.connexions[0].sixmois}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <h5 style="text-align:center">Site de la Chantrerie, Nantes</h5>
+</div>    

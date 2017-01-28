@@ -1,0 +1,32 @@
+<div class="modal-header" style="text-align:center">
+    <h4 class="text-center">Résultat de la recherche</h4>
+</div>
+<div class="modal-body" style="text-align:center">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Autorité</th>
+                <th>Date d'inscription</th>
+                <th>No. Tel</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="member in members">
+                <th><h5>{{member.username}}</h5></th>
+                <th><h5>{{member.email}}</h5></th>
+                <th><h5>{{member.power}}</h5></th>
+                <th><h5>{{member.registerDate}}</h5></th>
+                <th><h5>{{member.tel}}</h5></th>
+                <th><h5>{{member.type}}</h5></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer" style="text-align:center">
+    <h5>Veillez copier coller l'information dans un fichier texte, word, etc.</h5>
+    <br>
+</div>
+

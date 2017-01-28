@@ -1,0 +1,24 @@
+<div class="modal-header" style="text-align:center">
+    <h3 class="text-center">Liste des membres désactivés</h3>
+</div>
+<div class="modal-body" style="text-align:center">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Désactiver?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="member in disableMembers.data">
+                <th><h4>{{member.username}}</h4></th>
+                <th><h4>{{member.email}}</h4></th>
+                <th><button class="btn btn-success" id="{{member.email}}" ng-click="activateUser($event)">Activer</button></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <h5 style="text-align:center">Site de la Chantrerie, Nantes</h5>
+</div>    

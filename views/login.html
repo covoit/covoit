@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="jumbotron" style="border-radius:5%">
+        <h2 class="title">Panneau d'Administration</h2>
+        <h4 class="text-center"><strong>Développemment Durable</strong></h4>
+        <h4 class="text-center"><strong>Covoiturage</strong></h4>
+        <h5 class="text-center"><strong>Site de la Chantrerie</strong></h5>
+    </div>
+
+    <div class="text-center">
+        <div class="myPic animated zoomIn">
+           <form ng-submit="login()" class="form-inline">   
+                <input type="text" placeholder="Login (adresse mail)" id="email" size="25" maxlength="50" ng-model="data.email" required ng-click="update()" class="center form-control">
+                <input type="password" placeholder="Mot de Passe" name="password" id="password" size="20" ng-model="data.password" required ng-click="update()" class="center form-control">
+                <button class="btn btn-primary" type="submit">
+                  Connexion
+                </button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="text-left jumbotron" style="border-radius: 10%">
+        <div class="text-center">
+            <strong>{{message}}</strong>
+        </div>
+    </div>
+</div>
